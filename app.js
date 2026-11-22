@@ -170,9 +170,9 @@ const RELEASES = [
   },
   {
     id: 12,
-    file: 'wildheart.gba',
-    title: 'Wildheart',
-    desc: 'Wilderness action RPG with creature companions, custom tile shaders, and bosses.',
+    file: 'wildheart_v4.gba',
+    title: 'Wildheart v4',
+    desc: 'Wilderness action RPG (v4 release) with creature companions, custom tile shaders, and bosses.',
     category: 'original',
     platformIcon: 'gba',
     format: 'GBA ROM',
