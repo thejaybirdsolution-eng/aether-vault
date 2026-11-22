@@ -130,7 +130,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '16.0 MB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 9,
@@ -142,7 +143,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '16.0 MB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 10,
@@ -154,7 +156,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '16.0 MB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 11,
@@ -166,7 +169,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '64 KB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 12,
@@ -178,7 +182,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '2.00 MB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 13,
@@ -202,7 +207,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '1.07 MB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 15,
@@ -214,7 +220,8 @@ const RELEASES = [
     format: 'GBA ROM',
     ext: 'gba',
     size: '268 KB',
-    starred: false
+    starred: false,
+    poop: true
   },
   {
     id: 16,
@@ -272,12 +279,14 @@ function createCardElement(item, indexNum) {
       </span>
       ${item.starred
         ? `<span class="star-badge" title="Featured Release">★ Starred</span>`
+        : item.poop
+        ? `<span class="poop-badge" title="Marked Build">💩 ${numStr}</span>`
         : `<span class="index-num">${numStr}</span>`
       }
     </div>
 
     <div class="card-body">
-      <h2 class="card-title" title="${item.title}">${item.title}</h2>
+      <h2 class="card-title" title="${item.title}">${item.poop ? '💩 ' : ''}${item.title}</h2>
       <p class="card-desc" title="${item.desc}">${item.desc}</p>
       ${item.crossPortNote ? `
         <div class="port-note-pill" data-port-link="${item.crossPortTargetId}" title="Click to download Multiverse-Brawl-Android.apk">

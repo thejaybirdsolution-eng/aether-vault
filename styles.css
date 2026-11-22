@@ -562,6 +562,23 @@ html, body {
   flex-shrink: 0;
 }
 
+.poop-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 99px;
+  background: rgba(161, 98, 7, 0.14);
+  border: 1px solid rgba(180, 115, 28, 0.32);
+  color: #d6a868;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* Row 2: Card Body (Never Clipped or Smushed) */
 .card-body {
   display: flex;
