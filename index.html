@@ -23,51 +23,89 @@
         <div class="brand-title">
           <span>Jaybird Archive</span>
           <span class="brand-divider">/</span>
-          <span class="brand-meta">14 Releases · 165.3 MB</span>
+          <span class="brand-meta">15 Releases · 165.4 MB</span>
         </div>
       </div>
 
-      <!-- Segmented Filter Bar -->
+      <!-- Segmented Filter Bar with Authentic Platform Icons -->
       <nav class="filter-nav" aria-label="Filter Releases">
         <button class="filter-btn active" data-filter="all">
-          All <span class="filter-count">14</span>
+          All <span class="filter-count">15</span>
         </button>
         <button class="filter-btn" data-filter="starred">
-          <span class="star-glyph">★</span> Starred <span class="filter-count">4</span>
+          <span class="star-glyph">★</span> Starred <span class="filter-count">5</span>
         </button>
-        <button class="filter-btn" data-filter="android">
-          Android APK <span class="filter-count">3</span>
+        <button class="filter-btn" data-filter="windows" title="Windows x64 Desktop Releases">
+          <!-- Windows 4-Pane Icon -->
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <rect x="2" y="2" width="9" height="9" rx="1"></rect>
+            <rect x="13" y="2" width="9" height="9" rx="1"></rect>
+            <rect x="2" y="13" width="9" height="9" rx="1"></rect>
+            <rect x="13" y="13" width="9" height="9" rx="1"></rect>
+          </svg>
+          Windows <span class="filter-count">1</span>
         </button>
-        <button class="filter-btn" data-filter="pokemon">
+        <button class="filter-btn" data-filter="android" title="Android APK Releases">
+          <!-- Android Robot Head Icon -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 16V15a7 7 0 0 1 14 0v1H5z"></path>
+            <line x1="8" y1="9" x2="6" y2="6"></line>
+            <line x1="16" y1="9" x2="18" y2="6"></line>
+            <circle cx="9.5" cy="12.5" r="0.8" fill="currentColor"></circle>
+            <circle cx="14.5" cy="12.5" r="0.8" fill="currentColor"></circle>
+            <rect x="5" y="16" width="14" height="4" rx="1"></rect>
+          </svg>
+          Android <span class="filter-count">3</span>
+        </button>
+        <button class="filter-btn" data-filter="pokemon" title="Pokémon GBA Editions">
+          <!-- GBA Handheld Console Icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="3.5"></rect>
+            <rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect>
+            <path d="M5.2 11v2M4.2 12h2"></path>
+            <circle cx="18.2" cy="11" r="0.8" fill="currentColor"></circle>
+            <circle cx="19.6" cy="12.8" r="0.8" fill="currentColor"></circle>
+          </svg>
           Pokémon GBA <span class="filter-count">5</span>
         </button>
-        <button class="filter-btn" data-filter="original">
+        <button class="filter-btn" data-filter="original" title="Original GBA Homebrew & Engines">
+          <!-- GBA Handheld Console Icon -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="3.5"></rect>
+            <rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect>
+            <path d="M5.2 11v2M4.2 12h2"></path>
+            <circle cx="18.2" cy="11" r="0.8" fill="currentColor"></circle>
+            <circle cx="19.6" cy="12.8" r="0.8" fill="currentColor"></circle>
+          </svg>
           Original GBA <span class="filter-count">6</span>
         </button>
       </nav>
 
-      <!-- Search Field -->
+      <!-- Search Field & Legal Shield Trigger -->
       <div class="utility-group">
         <div class="search-wrap">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
           <input type="text" id="search-input" class="search-field" placeholder="Filter builds..." autocomplete="off" />
           <span class="search-shortcut">/</span>
         </div>
+        <button class="legal-link-btn" id="btn-open-legal-top" title="View Florida Terms of Use, Non-Affiliation & DMCA Policy">
+          Legal &amp; Terms (FL)
+        </button>
       </div>
     </header>
 
     <!-- Main Zero-Scroll Content Stage -->
     <section class="main-stage">
-      <!-- Tier 1: The 4 Starred Flagships -->
+      <!-- Tier 1: The 5 Starred Flagships (5 Columns) -->
       <div class="tier-section tier-featured">
         <div class="section-header">
           <span class="section-label">
             <span class="star-dot">★</span> Featured Flagships
           </span>
-          <span class="section-sub">01 — 04 / Priority Releases</span>
+          <span class="section-sub">01 — 05 / Windows x64 · Android APK · GBA ROM</span>
         </div>
         <div class="featured-grid" id="featured-grid"></div>
       </div>
@@ -76,24 +114,88 @@
       <div class="tier-section tier-library">
         <div class="section-header">
           <span class="section-label">Complete Build Library</span>
-          <span class="section-sub">05 — 14 / Direct Binary Downloads</span>
+          <span class="section-sub">06 — 15 / Direct Binary Downloads</span>
         </div>
         <div class="library-grid" id="library-grid"></div>
       </div>
     </section>
 
-    <!-- Bottom Architectural Status Bar -->
+    <!-- Bottom Architectural Status & Florida Legal Disclaimers Bar -->
     <footer class="statusbar">
       <div class="status-left">
         <span class="live-indicator"></span>
         <span id="status-inspect">Ready — Click any card to download immediately</span>
       </div>
+
+      <div class="status-legal-center">
+        <span>Non-Commercial Personal Archive ($0.00) · Unaffiliated with Nintendo, The Pokémon Co., Google, or Microsoft · Provided "AS-IS" Under Florida Law</span>
+        <button class="legal-link-btn" id="btn-open-legal-bottom">Terms, DMCA &amp; FL Liability Shield</button>
+      </div>
+
       <div class="status-right">
-        <span>CDN: GitHub Pages Direct</span>
-        <span id="status-count">14 / 14 Visible</span>
+        <span id="status-count">15 / 15 Visible</span>
       </div>
     </footer>
   </main>
+
+  <!-- FLORIDA LEGAL, DMCA SAFE HARBOR & LIABILITY SHIELD MODAL -->
+  <div class="legal-modal-backdrop" id="legal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
+    <div class="legal-modal">
+      <div class="legal-modal-header">
+        <h3 id="legal-modal-title">Terms of Use, Intellectual Property Disclaimers, DMCA Policy &amp; Florida Liability Shield</h3>
+        <button class="legal-close-btn" id="btn-close-legal">ESC / CLOSE</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <div class="legal-clause">
+          <h4><span>§ 01</span> Non-Affiliation &amp; Trademark Disclaimer (15 U.S.C. § 1125 / Nominative Fair Use)</h4>
+          <p>
+            This website ("Jaybird Archive") is an independent, non-commercial personal software engineering portfolio and archival repository. It is <strong>not</strong> affiliated with, endorsed by, sponsored by, authorized by, or in any way officially connected with <strong>Nintendo Co., Ltd.</strong>, <strong>The Pokémon Company</strong>, <strong>Game Freak Inc.</strong>, <strong>Creatures Inc.</strong>, <strong>Warner Bros. Discovery / NetherRealm Studios</strong>, <strong>Google LLC</strong>, or <strong>Microsoft Corporation</strong>. The names <em>Pokémon</em>, <em>Pokemon Ruby</em>, <em>FireRed</em>, <em>LeafGreen</em>, <em>The Legend of Zelda: The Minish Cap</em>, <em>Mortal Kombat</em>, <em>Game Boy Advance (GBA)</em>, <em>Android</em>, and <em>Windows</em>, as well as related emblems and marks, are registered trademarks of their respective owners and are referenced strictly for descriptive identification of target platforms and fan-created modifications.
+          </p>
+        </div>
+
+        <div class="legal-clause">
+          <h4><span>§ 02</span> Strictly Non-Commercial, Educational &amp; Archival Backup Use (17 U.S.C. §§ 107, 117)</h4>
+          <p>
+            All original homebrew titles (including <em>ClipCut</em>, <em>Jbird Reader</em>, <em>Tidemark</em>, <em>Wildheart</em>, <em>Aethermon</em>, <em>Emberwake</em>, <em>NeonPulse</em>, and <em>Multiverse Brawl</em>) and experimental fan modifications hosted here are distributed <strong>100% free of charge ($0.00 USD)</strong> without advertisements, paywalls, subscriptions, donations, or commercial monetization of any kind. By downloading any modified ROM build, you affirmatively represent, warrant, and certify under penalty of perjury that you lawfully own an original, physical licensed cartridge of the underlying base title where required under <strong>17 U.S.C. § 117</strong> (Archival &amp; Interoperability Backup Exceptions) and that your use is limited to personal, non-commercial research or archival testing.
+          </p>
+        </div>
+
+        <div class="legal-clause">
+          <h4><span>§ 03</span> Digital Millennium Copyright Act (DMCA) Safe Harbor &amp; Takedown Policy (17 U.S.C. § 512)</h4>
+          <p>
+            The operator respects the intellectual property rights of all third parties and complies with the Digital Millennium Copyright Act (DMCA). If you are a copyright or trademark owner (or an authorized agent thereof) and believe that any file hosted in this repository infringes your rights, please submit a written notice via the repository's GitHub Issues page (<a href="https://github.com/thejaybirdsolution-eng/aether-vault/issues" target="_blank" rel="noopener noreferrer" style="color:#e2b96f;">github.com/thejaybirdsolution-eng/aether-vault/issues</a>) identifying the copyrighted work and the specific URL. Upon receipt of a valid notice, the operator will remove or disable access to the identified material immediately.
+          </p>
+        </div>
+
+        <div class="legal-clause">
+          <h4><span>§ 04</span> Disclaimer of Warranties — Software Provided "AS IS" (Fla. Stat. § 672.316)</h4>
+          <p>
+            TO THE MAXIMUM EXTENT PERMITTED BY FLORIDA AND FEDERAL LAW, ALL WINDOWS EXECUTABLES (<code>.EXE</code> / <code>.ZIP</code>), ANDROID PACKAGES (<code>.APK</code>), AND GAME BOY ADVANCE FILES (<code>.GBA</code>) ARE PROVIDED <strong>"AS IS"</strong>, <strong>"WITH ALL FAULTS"</strong>, AND <strong>"AS AVAILABLE"</strong>, WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY. THE OPERATOR EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, SYSTEM INTEGRATION, AND NON-INFRINGEMENT UNDER <strong>FLORIDA STATUTES § 672.316</strong>.
+          </p>
+        </div>
+
+        <div class="legal-clause">
+          <h4><span>§ 05</span> Limitation of Liability, Assumption of Risk &amp; Indemnification (State of Florida)</h4>
+          <p>
+            By downloading, sideloading, extracting, or executing any binary from this website, you voluntarily assume all risks of hardware/software incompatibility, data loss, or device malfunction. IN NO EVENT SHALL THE CREATOR, AUTHOR, OR HOST BE LIABLE UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY, OR OTHER LEGAL OR EQUITABLE THEORY IN FLORIDA OR ANY OTHER JURISDICTION FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, EXEMPLARY, OR CONSEQUENTIAL DAMAGES. You agree to indemnify, defend, and hold harmless the site operator from and against any and all third-party claims, demands, liabilities, costs, or attorneys' fees arising out of your download, possession, or use of any file hosted herein, or your breach of these Terms.
+          </p>
+        </div>
+
+        <div class="legal-clause">
+          <h4><span>§ 06</span> Florida Governing Law, Exclusive Venue, Class Action Waiver &amp; Privacy (FIPA / FDBR)</h4>
+          <p>
+            These Terms and any dispute or claim arising out of or related to this website shall be governed by and construed exclusively in accordance with the internal laws of the <strong>State of Florida</strong>, without giving effect to any choice or conflict of law provision. Any legal suit, action, or proceeding shall be instituted exclusively in the state or federal courts located in the <strong>State of Florida</strong>. You expressly waive any right to bring or participate in a class action, collective action, or representative proceeding, and agree to provide a written 30-day informal notice-and-cure opportunity prior to initiating any claim. In accordance with the <strong>Florida Information Protection Act (Fla. Stat. § 501.171)</strong>, this static site collects zero personal data, sets zero tracking cookies, and never sells or shares user data.
+          </p>
+        </div>
+      </div>
+
+      <div class="legal-modal-footer">
+        <span>By downloading any file from this site, you acknowledge and agree to these Florida Terms of Use.</span>
+        <button class="legal-accept-btn" id="btn-accept-legal">I Understand &amp; Agree</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Toast Container -->
   <div class="toast-wrap" id="toast-wrap"></div>
