@@ -246,6 +246,7 @@ function createCardElement(item, indexNum) {
   card.className = [
     'release-card',
     item.starred ? 'starred' : '',
+    item.crossPortNote ? 'has-note' : '',
     !isMatch ? 'filtered-out' : ''
   ].filter(Boolean).join(' ');
 
@@ -264,10 +265,8 @@ function createCardElement(item, indexNum) {
     </div>
 
     <div class="card-body">
-      <div class="card-title-row">
-        <h2 class="card-title">${item.title}</h2>
-      </div>
-      <p class="card-desc">${item.desc}</p>
+      <h2 class="card-title" title="${item.title}">${item.title}</h2>
+      <p class="card-desc" title="${item.desc}">${item.desc}</p>
       ${item.crossPortNote ? `
         <div class="port-note-pill" data-port-link="${item.crossPortTargetId}" title="Click to download Multiverse-Brawl-Android.apk">
           ${PLATFORM_ICONS.android}

@@ -37,7 +37,7 @@
         </button>
         <button class="filter-btn" data-filter="windows" title="Windows x64 Desktop Releases">
           <!-- Windows 4-Pane Icon -->
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
             <rect x="2" y="2" width="9" height="9" rx="1"></rect>
             <rect x="13" y="2" width="9" height="9" rx="1"></rect>
             <rect x="2" y="13" width="9" height="9" rx="1"></rect>
@@ -47,7 +47,7 @@
         </button>
         <button class="filter-btn" data-filter="android" title="Android APK Releases">
           <!-- Android Robot Head Icon -->
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 16V15a7 7 0 0 1 14 0v1H5z"></path>
             <line x1="8" y1="9" x2="6" y2="6"></line>
             <line x1="16" y1="9" x2="18" y2="6"></line>
@@ -59,7 +59,7 @@
         </button>
         <button class="filter-btn" data-filter="pokemon" title="Pokémon GBA Editions">
           <!-- GBA Handheld Console Icon -->
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="6" width="20" height="12" rx="3.5"></rect>
             <rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect>
             <path d="M5.2 11v2M4.2 12h2"></path>
@@ -70,7 +70,7 @@
         </button>
         <button class="filter-btn" data-filter="original" title="Original GBA Homebrew & Engines">
           <!-- GBA Handheld Console Icon -->
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="6" width="20" height="12" rx="3.5"></rect>
             <rect x="8.5" y="8.5" width="7" height="7" rx="1"></rect>
             <path d="M5.2 11v2M4.2 12h2"></path>
@@ -81,7 +81,7 @@
         </button>
       </nav>
 
-      <!-- Search Field & Legal Shield Trigger -->
+      <!-- Search Field & Glowing Crimson Legal Disclosures Button -->
       <div class="utility-group">
         <div class="search-wrap">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -91,8 +91,9 @@
           <input type="text" id="search-input" class="search-field" placeholder="Filter builds..." autocomplete="off" />
           <span class="search-shortcut">/</span>
         </div>
-        <button class="legal-link-btn" id="btn-open-legal-top" title="View Florida Terms of Use, Non-Affiliation & DMCA Policy">
-          Legal &amp; Terms (FL)
+        <button class="legal-glow-btn" id="btn-open-legal-top" title="Mandatory Disclosures, Terms of Non-Use, DMCA & Florida Liability Shield">
+          <span class="red-dot"></span>
+          <span>Disclosures &amp; Terms (FL)</span>
         </button>
       </div>
     </header>
@@ -100,7 +101,7 @@
     <!-- Main Zero-Scroll Content Stage -->
     <section class="main-stage">
       <!-- Tier 1: The 5 Starred Flagships (5 Columns) -->
-      <div class="tier-section tier-featured">
+      <div class="tier-section">
         <div class="section-header">
           <span class="section-label">
             <span class="star-dot">★</span> Featured Flagships
@@ -111,7 +112,7 @@
       </div>
 
       <!-- Tier 2: The 10 Library Builds (5 x 2 Grid) -->
-      <div class="tier-section tier-library">
+      <div class="tier-section">
         <div class="section-header">
           <span class="section-label">Complete Build Library</span>
           <span class="section-sub">06 — 15 / Direct Binary Downloads</span>
@@ -128,8 +129,11 @@
       </div>
 
       <div class="status-legal-center">
-        <span>Non-Commercial Personal Archive ($0.00) · Unaffiliated with Nintendo, The Pokémon Co., Google, or Microsoft · Provided "AS-IS" Under Florida Law</span>
-        <button class="legal-link-btn" id="btn-open-legal-bottom">Terms, DMCA &amp; FL Liability Shield</button>
+        <span class="status-legal-text">Downloading constitutes binding agreement never to use, play, look at, buy, sell, or talk about any file · Unaffiliated · "AS-IS" Under Florida Law</span>
+        <button class="legal-glow-btn compact" id="btn-open-legal-bottom">
+          <span class="red-dot"></span>
+          <span>Mandatory Disclosures &amp; FL Shield</span>
+        </button>
       </div>
 
       <div class="status-right">
@@ -138,61 +142,71 @@
     </footer>
   </main>
 
-  <!-- FLORIDA LEGAL, DMCA SAFE HARBOR & LIABILITY SHIELD MODAL -->
+  <!-- FLORIDA LEGAL, DMCA SAFE HARBOR & IRONCLAD NON-USE COVENANT MODAL -->
   <div class="legal-modal-backdrop" id="legal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
     <div class="legal-modal">
       <div class="legal-modal-header">
-        <h3 id="legal-modal-title">Terms of Use, Intellectual Property Disclaimers, DMCA Policy &amp; Florida Liability Shield</h3>
+        <h3 id="legal-modal-title">
+          <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;box-shadow:0 0 10px #ef4444;display:inline-block;"></span>
+          Mandatory Disclosures, Binding Covenant of Non-Use, DMCA Policy &amp; Florida Liability Shield
+        </h3>
         <button class="legal-close-btn" id="btn-close-legal">ESC / CLOSE</button>
       </div>
 
       <div class="legal-modal-body">
-        <div class="legal-clause">
-          <h4><span>§ 01</span> Non-Affiliation &amp; Trademark Disclaimer (15 U.S.C. § 1125 / Nominative Fair Use)</h4>
+        <div class="legal-clause clause-critical">
+          <h4><span>§ 01</span> BINDING COVENANT OF STRICT NON-USE, NON-INSPECTION, NON-SALE &amp; NON-DISCLOSURE</h4>
           <p>
-            This website ("Jaybird Archive") is an independent, non-commercial personal software engineering portfolio and archival repository. It is <strong>not</strong> affiliated with, endorsed by, sponsored by, authorized by, or in any way officially connected with <strong>Nintendo Co., Ltd.</strong>, <strong>The Pokémon Company</strong>, <strong>Game Freak Inc.</strong>, <strong>Creatures Inc.</strong>, <strong>Warner Bros. Discovery / NetherRealm Studios</strong>, <strong>Google LLC</strong>, or <strong>Microsoft Corporation</strong>. The names <em>Pokémon</em>, <em>Pokemon Ruby</em>, <em>FireRed</em>, <em>LeafGreen</em>, <em>The Legend of Zelda: The Minish Cap</em>, <em>Mortal Kombat</em>, <em>Game Boy Advance (GBA)</em>, <em>Android</em>, and <em>Windows</em>, as well as related emblems and marks, are registered trademarks of their respective owners and are referenced strictly for descriptive identification of target platforms and fan-created modifications.
+            <strong>READ CAREFULLY BEFORE DOWNLOADING ANY FILE:</strong> By accessing this website or clicking any download link hereon, you enter into a binding legal covenant under the laws of the State of Florida and expressly agree that if you download anything from this site, <strong>you agree to NEVER use it, NEVER sell it, NEVER buy it, NEVER look at it, NEVER play it, NEVER run or execute it, NEVER install or sideload it, NEVER decompile or inspect it, NEVER share or redistribute it, and NEVER talk about it, write about it, post about it, or reference it anywhere in any medium whatsoever.</strong> All files exist solely as inert theoretical binary bitstreams. Any action you take after initiating a download is done strictly against the express prohibition of the site operator and at your own exclusive legal, financial, and technical risk.
+          </p>
+        </div>
+
+        <div class="legal-clause clause-critical">
+          <h4><span>§ 02</span> IRREVOCABLE COVENANT NOT TO SUE, COMPLETE RELEASE &amp; TOTAL WAIVER OF CLAIMS</h4>
+          <p>
+            As an absolute condition precedent to viewing, accessing, or downloading any byte of data from this repository, you (on behalf of yourself, your employers, principals, affiliates, heirs, assigns, and any entity or agency you represent) <strong>irrevocably release, waive, acquit, and forever discharge</strong> the creator, owner, developer, and host of this website from any and all civil, criminal, statutory, administrative, equitable, copyright, trademark, trade dress, patent, contract, tort, negligence, strict liability, or consumer protection liability of every conceivable kind. You expressly covenant and agree <strong>NEVER to initiate, file, prosecute, join, fund, assist, or participate in any lawsuit, demand letter, cease-and-desist, arbitration, or legal proceeding</strong> against the site operator in the State of Florida, any U.S. Federal Court, or any foreign jurisdiction. Should you breach this Covenant Not to Sue, you agree to pay all of the operator's attorneys' fees, court costs, and liquidated damages upon filing.
           </p>
         </div>
 
         <div class="legal-clause">
-          <h4><span>§ 02</span> Strictly Non-Commercial, Educational &amp; Archival Backup Use (17 U.S.C. §§ 107, 117)</h4>
+          <h4><span>§ 03</span> Non-Affiliation &amp; Trademark Disclaimer (15 U.S.C. § 1125 / Nominative Fair Use)</h4>
           <p>
-            All original homebrew titles (including <em>ClipCut</em>, <em>Jbird Reader</em>, <em>Tidemark</em>, <em>Wildheart</em>, <em>Aethermon</em>, <em>Emberwake</em>, <em>NeonPulse</em>, and <em>Multiverse Brawl</em>) and experimental fan modifications hosted here are distributed <strong>100% free of charge ($0.00 USD)</strong> without advertisements, paywalls, subscriptions, donations, or commercial monetization of any kind. By downloading any modified ROM build, you affirmatively represent, warrant, and certify under penalty of perjury that you lawfully own an original, physical licensed cartridge of the underlying base title where required under <strong>17 U.S.C. § 117</strong> (Archival &amp; Interoperability Backup Exceptions) and that your use is limited to personal, non-commercial research or archival testing.
+            This website ("Jaybird Archive") is an independent, non-commercial personal archive. It is <strong>not</strong> affiliated with, endorsed by, sponsored by, authorized by, or in any way officially connected with <strong>Nintendo Co., Ltd.</strong>, <strong>The Pokémon Company</strong>, <strong>Game Freak Inc.</strong>, <strong>Creatures Inc.</strong>, <strong>Warner Bros. Discovery / NetherRealm Studios</strong>, <strong>Google LLC</strong>, or <strong>Microsoft Corporation</strong>. All third-party product names (including <em>Pokémon</em>, <em>Ruby</em>, <em>FireRed</em>, <em>LeafGreen</em>, <em>The Legend of Zelda: The Minish Cap</em>, <em>Mortal Kombat</em>, <em>Game Boy Advance</em>, <em>Android</em>, and <em>Windows</em>) are trademarks™ or registered® trademarks of their respective holders and are used strictly for nominative identification.
           </p>
         </div>
 
         <div class="legal-clause">
-          <h4><span>§ 03</span> Digital Millennium Copyright Act (DMCA) Safe Harbor &amp; Takedown Policy (17 U.S.C. § 512)</h4>
+          <h4><span>§ 04</span> Zero-Monetization ($0.00) &amp; Archival Ownership Warranty (17 U.S.C. §§ 107, 117)</h4>
           <p>
-            The operator respects the intellectual property rights of all third parties and complies with the Digital Millennium Copyright Act (DMCA). If you are a copyright or trademark owner (or an authorized agent thereof) and believe that any file hosted in this repository infringes your rights, please submit a written notice via the repository's GitHub Issues page (<a href="https://github.com/thejaybirdsolution-eng/aether-vault/issues" target="_blank" rel="noopener noreferrer" style="color:#e2b96f;">github.com/thejaybirdsolution-eng/aether-vault/issues</a>) identifying the copyrighted work and the specific URL. Upon receipt of a valid notice, the operator will remove or disable access to the identified material immediately.
+            Every file on this website is hosted <strong>100% free of charge ($0.00 USD)</strong> with zero advertisements, zero sponsorships, zero donations, zero paywalls, and zero commercial gain. Without waiving the Strict Covenant of Non-Use in § 01 above, any person who downloads any file additionally certifies under penalty of perjury that they lawfully own an original physical licensed cartridge of any underlying base work where required under <strong>17 U.S.C. § 117</strong>.
           </p>
         </div>
 
         <div class="legal-clause">
-          <h4><span>§ 04</span> Disclaimer of Warranties — Software Provided "AS IS" (Fla. Stat. § 672.316)</h4>
+          <h4><span>§ 05</span> DMCA Safe Harbor &amp; Immediate 24-Hour Takedown Protocol (17 U.S.C. § 512)</h4>
           <p>
-            TO THE MAXIMUM EXTENT PERMITTED BY FLORIDA AND FEDERAL LAW, ALL WINDOWS EXECUTABLES (<code>.EXE</code> / <code>.ZIP</code>), ANDROID PACKAGES (<code>.APK</code>), AND GAME BOY ADVANCE FILES (<code>.GBA</code>) ARE PROVIDED <strong>"AS IS"</strong>, <strong>"WITH ALL FAULTS"</strong>, AND <strong>"AS AVAILABLE"</strong>, WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY. THE OPERATOR EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, SYSTEM INTEGRATION, AND NON-INFRINGEMENT UNDER <strong>FLORIDA STATUTES § 672.316</strong>.
+            The operator respects intellectual property rights and complies with the Digital Millennium Copyright Act (DMCA). Any rights holder who wishes to request the removal of any file may submit an informal or formal request via <a href="https://github.com/thejaybirdsolution-eng/aether-vault/issues" target="_blank" rel="noopener noreferrer" style="color:#fca5a5;">github.com/thejaybirdsolution-eng/aether-vault/issues</a>. Upon notice, the operator will remove the requested file immediately without dispute or delay.
           </p>
         </div>
 
         <div class="legal-clause">
-          <h4><span>§ 05</span> Limitation of Liability, Assumption of Risk &amp; Indemnification (State of Florida)</h4>
+          <h4><span>§ 06</span> Disclaimer of All Warranties ("AS-IS / WITH ALL FAULTS" — Fla. Stat. § 672.316)</h4>
           <p>
-            By downloading, sideloading, extracting, or executing any binary from this website, you voluntarily assume all risks of hardware/software incompatibility, data loss, or device malfunction. IN NO EVENT SHALL THE CREATOR, AUTHOR, OR HOST BE LIABLE UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY, OR OTHER LEGAL OR EQUITABLE THEORY IN FLORIDA OR ANY OTHER JURISDICTION FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, EXEMPLARY, OR CONSEQUENTIAL DAMAGES. You agree to indemnify, defend, and hold harmless the site operator from and against any and all third-party claims, demands, liabilities, costs, or attorneys' fees arising out of your download, possession, or use of any file hosted herein, or your breach of these Terms.
+            TO THE MAXIMUM EXTENT PERMITTED BY FLORIDA AND FEDERAL LAW, ALL FILES (<code>.ZIP</code>, <code>.EXE</code>, <code>.APK</code>, <code>.GBA</code>) ARE PROVIDED <strong>"AS IS"</strong> AND <strong>"WITH ALL FAULTS"</strong>, WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY. THE OPERATOR EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, SECURITY, AND NON-INFRINGEMENT UNDER <strong>FLORIDA STATUTES § 672.316</strong>.
           </p>
         </div>
 
         <div class="legal-clause">
-          <h4><span>§ 06</span> Florida Governing Law, Exclusive Venue, Class Action Waiver &amp; Privacy (FIPA / FDBR)</h4>
+          <h4><span>§ 07</span> Full Indemnification, Duty to Defend &amp; Exclusive State of Florida Governing Law</h4>
           <p>
-            These Terms and any dispute or claim arising out of or related to this website shall be governed by and construed exclusively in accordance with the internal laws of the <strong>State of Florida</strong>, without giving effect to any choice or conflict of law provision. Any legal suit, action, or proceeding shall be instituted exclusively in the state or federal courts located in the <strong>State of Florida</strong>. You expressly waive any right to bring or participate in a class action, collective action, or representative proceeding, and agree to provide a written 30-day informal notice-and-cure opportunity prior to initiating any claim. In accordance with the <strong>Florida Information Protection Act (Fla. Stat. § 501.171)</strong>, this static site collects zero personal data, sets zero tracking cookies, and never sells or shares user data.
+            You agree to fully indemnify, defend, and hold harmless the site operator from and against any and all third-party claims, lawsuits, losses, fines, or expenses (including reasonable attorneys' fees) arising out of or related to your access to this website or your download of any file. These Terms are governed exclusively by the laws of the <strong>State of Florida</strong> without regard to conflict-of-law principles. Exclusive jurisdiction and venue for any matter shall lie solely in the state or federal courts located in the <strong>State of Florida</strong>, with a mandatory 60-day written informal notice-and-cure period prior to any action, an absolute waiver of jury trial, and a complete bar on class actions. In compliance with the <strong>Florida Information Protection Act (Fla. Stat. § 501.171)</strong>, this site collects zero personal user data and uses zero tracking cookies.
           </p>
         </div>
       </div>
 
       <div class="legal-modal-footer">
-        <span>By downloading any file from this site, you acknowledge and agree to these Florida Terms of Use.</span>
-        <button class="legal-accept-btn" id="btn-accept-legal">I Understand &amp; Agree</button>
+        <span>By downloading any file, you irrevocably bind yourself to § 01 – § 07 above under Florida Law.</span>
+        <button class="legal-accept-btn" id="btn-accept-legal">I Acknowledge &amp; Agree to All Terms</button>
       </div>
     </div>
   </div>

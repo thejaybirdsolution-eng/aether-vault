@@ -1,5 +1,6 @@
 /* ==========================================================================
-   JAYBIRD ARCHIVE — ARCHITECTURAL MONOCHROME DESIGN SYSTEM (5x3 SWISS GRID)
+   JAYBIRD ARCHIVE — PRECISION ARCHITECTURAL MONOCHROME SYSTEM
+   Locked geometry · Zero layout shift · Responsive Desktop & Mobile
    ========================================================================== */
 
 :root {
@@ -9,23 +10,27 @@
   --bg-featured: #121216;
   --bg-featured-hover: #17171c;
 
-  --border-subtle: rgba(255, 255, 255, 0.075);
-  --border-hover: rgba(255, 255, 255, 0.2);
-  --border-star: rgba(226, 185, 111, 0.3);
-  --border-star-hover: rgba(226, 185, 111, 0.58);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --border-star: rgba(226, 185, 111, 0.32);
+  --border-star-hover: rgba(226, 185, 111, 0.6);
 
   --text-primary: #f4f4f6;
-  --text-secondary: #9494a0;
-  --text-muted: #5a5a66;
+  --text-secondary: #9898a6;
+  --text-muted: #5e5e6c;
 
   --star-gold: #e2b96f;
-  --star-gold-bg: rgba(226, 185, 111, 0.11);
+  --star-gold-bg: rgba(226, 185, 111, 0.12);
+
+  --crimson-border: rgba(239, 68, 68, 0.48);
+  --crimson-bg: rgba(220, 38, 38, 0.13);
+  --crimson-text: #fca5a5;
 
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -34,7 +39,7 @@
 }
 
 html, body {
-  width: 100vw;
+  width: 100%;
   height: 100dvh;
   overflow: hidden;
   background-color: var(--bg-canvas);
@@ -51,7 +56,7 @@ html, body {
   pointer-events: none;
   background:
     radial-gradient(1200px 520px at 50% -10%, rgba(255, 255, 255, 0.055), transparent 70%),
-    radial-gradient(750px 420px at 50% 20%, rgba(226, 185, 111, 0.028), transparent 70%);
+    radial-gradient(750px 420px at 50% 20%, rgba(226, 185, 111, 0.025), transparent 70%);
 }
 
 .studio-grid {
@@ -60,45 +65,47 @@ html, body {
   z-index: 1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 30%, transparent 100%);
 }
 
 /* ==========================================================================
-   MAIN ZERO-SCROLL VIEWPORT SHELL
+   MAIN ZERO-SCROLL VIEWPORT SHELL (LOCKED PROPORTIONS ON DESKTOP)
    ========================================================================== */
 .viewport-shell {
   position: relative;
   z-index: 10;
-  width: 100vw;
+  width: 100%;
   height: 100dvh;
-  max-width: 1680px;
+  max-width: 1720px;
   margin: 0 auto;
-  padding: 16px 26px 12px;
+  padding: 14px 24px 10px;
   display: grid;
-  grid-template-rows: 52px 1fr 38px;
-  gap: 14px;
+  grid-template-rows: 50px minmax(0, 1fr) 36px;
+  gap: 12px;
 }
 
 /* ==========================================================================
-   TOP BAR — MINIMALIST STUDIO HEADER
+   TOP BAR — FIXED GEOMETRY (NO SHIFTING WHEN CLICKING OR TYPING)
    ========================================================================== */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 12px;
+  gap: 14px;
+  height: 50px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -110,19 +117,21 @@ html, body {
   display: grid;
   place-items: center;
   font-weight: 800;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   letter-spacing: -0.04em;
+  flex-shrink: 0;
   box-shadow: 0 2px 10px rgba(255, 255, 255, 0.12);
 }
 
 .brand-title {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .brand-divider {
@@ -132,12 +141,12 @@ html, body {
 
 .brand-meta {
   font-family: var(--font-mono);
-  font-size: 0.71rem;
+  font-size: 0.7rem;
   font-weight: 400;
   color: var(--text-secondary);
 }
 
-/* Minimal Segmented Filter Bar with Platform Icons */
+/* Minimal Segmented Filter Bar — Locked Button Dimensions */
 .filter-nav {
   display: flex;
   align-items: center;
@@ -146,6 +155,7 @@ html, body {
   border-radius: 9px;
   border: 1px solid var(--border-subtle);
   gap: 2px;
+  flex-shrink: 0;
 }
 
 .filter-btn {
@@ -153,20 +163,23 @@ html, body {
   background: transparent;
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.73rem;
   font-weight: 500;
-  padding: 6px 11px;
+  height: 30px;
+  padding: 0 11px;
   border-radius: 6px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
-  transition: color 0.16s ease, background 0.16s ease;
+  transition: color 0.15s ease, background 0.15s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .filter-btn svg {
-  opacity: 0.8;
+  opacity: 0.82;
   flex-shrink: 0;
 }
 
@@ -186,12 +199,12 @@ html, body {
 
 .filter-btn .star-glyph {
   color: var(--star-gold);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
 }
 
 .filter-count {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   color: var(--text-muted);
 }
 
@@ -199,17 +212,20 @@ html, body {
   color: var(--text-secondary);
 }
 
-/* Right Search Input & Legal Trigger */
+/* Right Search Input & Glowing Red Legal Button — Fixed Widths */
 .utility-group {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .search-wrap {
   position: relative;
   display: flex;
   align-items: center;
+  width: 185px;
+  flex-shrink: 0;
 }
 
 .search-wrap svg {
@@ -223,13 +239,14 @@ html, body {
   background: #0d0d10;
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  padding: 6px 26px 6px 30px;
+  height: 32px;
+  padding: 0 26px 0 30px;
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  width: 185px;
+  font-size: 0.74rem;
+  width: 100%;
   outline: none;
-  transition: border-color 0.16s ease, width 0.2s ease;
+  transition: border-color 0.16s ease;
 }
 
 .search-field::placeholder {
@@ -237,15 +254,14 @@ html, body {
 }
 
 .search-field:focus {
-  border-color: rgba(255, 255, 255, 0.24);
-  width: 215px;
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .search-shortcut {
   position: absolute;
   right: 8px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
@@ -254,93 +270,177 @@ html, body {
 }
 
 /* ==========================================================================
-   MAIN STAGE — 5-COLUMN SWISS GRID (5 STARRED + 10 LIBRARY = 15 ITEMS)
+   RED GLOWING & SHINING DISCLOSURES / TERMS BUTTON (REFINED, NON-ANNOYING)
+   ========================================================================== */
+.legal-glow-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--crimson-border);
+  background: var(--crimson-bg);
+  color: var(--crimson-text);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 14px rgba(239, 68, 68, 0.22),
+    inset 0 1px 0 rgba(255, 180, 180, 0.18);
+  animation: subtleCrimsonGlow 4s ease-in-out infinite;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.legal-glow-btn.compact {
+  height: 24px;
+  padding: 0 10px;
+  font-size: 0.61rem;
+  border-radius: 5px;
+}
+
+.legal-glow-btn .red-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  flex-shrink: 0;
+}
+
+/* Soft diagonal specular shine gliding across the button every 5.5s */
+.legal-glow-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 65%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 200, 200, 0.26) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  animation: rubySheen 5.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  pointer-events: none;
+}
+
+.legal-glow-btn:hover {
+  background: rgba(220, 38, 38, 0.24);
+  border-color: rgba(248, 113, 113, 0.8);
+  color: #ffffff;
+  box-shadow:
+    0 0 22px rgba(239, 68, 68, 0.42),
+    inset 0 1px 0 rgba(255, 220, 220, 0.3);
+}
+
+@keyframes subtleCrimsonGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2), inset 0 1px 0 rgba(255, 180, 180, 0.16);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.34), inset 0 1px 0 rgba(255, 200, 200, 0.26);
+  }
+}
+
+@keyframes rubySheen {
+  0% { left: -120%; }
+  28%, 100% { left: 160%; }
+}
+
+/* ==========================================================================
+   MAIN STAGE — LOCKED 5-COLUMN x 3-ROW GRID (ZERO RESIZING OR OVERLAPPING)
    ========================================================================== */
 .main-stage {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-rows: 1fr 2.02fr;
+  gap: 12px;
   min-height: 0;
   height: 100%;
 }
 
 .tier-section {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+  display: grid;
+  grid-template-rows: 18px minmax(0, 1fr);
+  gap: 6px;
   min-height: 0;
-}
-
-.tier-featured {
-  flex: 1.08;
-}
-
-.tier-library {
-  flex: 2.05;
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 18px;
 }
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 }
 
 .section-label .star-dot {
   color: var(--star-gold);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
 }
 
 .section-sub {
   font-family: var(--font-mono);
-  font-size: 0.64rem;
+  font-size: 0.63rem;
   color: var(--text-muted);
 }
 
-/* Symmetrical 5-Column Alignment across both tiers */
+/* Symmetrical 5-Column Alignment across both tiers — Fixed Tracks */
 .featured-grid {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 11px;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 10px;
   min-height: 0;
+  height: 100%;
 }
 
 .library-grid {
-  flex: 1;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 11px;
+  gap: 10px;
   min-height: 0;
+  height: 100%;
 }
 
 /* ==========================================================================
-   ARCHITECTURAL RELEASE CARD
+   ARCHITECTURAL RELEASE CARD — FIXED GEOMETRY, NO SMUSHING, NO SHIFTING
    ========================================================================== */
 .release-card {
   position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: 11px;
+  padding: 11px 13px;
+  display: grid;
+  grid-template-rows: 22px minmax(0, 1fr) 28px;
+  gap: 4px;
   cursor: pointer;
   overflow: hidden;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transition: background 0.16s ease, border-color 0.16s ease, opacity 0.2s ease;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -350,12 +450,12 @@ html, body {
   position: absolute;
   inset: 0;
   background: radial-gradient(
-    340px circle at var(--mx, 50%) var(--my, 0%),
+    320px circle at var(--mx, 50%) var(--my, 0%),
     rgba(255, 255, 255, 0.055),
     transparent 60%
   );
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
   pointer-events: none;
 }
 
@@ -366,7 +466,6 @@ html, body {
 .release-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-hover);
-  transform: translateY(-2px);
 }
 
 /* Starred / Featured Card Refinement */
@@ -375,12 +474,12 @@ html, body {
   border-color: var(--border-star);
   box-shadow:
     inset 0 1px 0 rgba(226, 185, 111, 0.14),
-    0 10px 28px -10px rgba(0, 0, 0, 0.65);
+    0 8px 24px -8px rgba(0, 0, 0, 0.65);
 }
 
 .release-card.starred::before {
   background: radial-gradient(
-    400px circle at var(--mx, 50%) var(--my, 0%),
+    380px circle at var(--mx, 50%) var(--my, 0%),
     rgba(226, 185, 111, 0.085),
     transparent 60%
   );
@@ -392,17 +491,18 @@ html, body {
 }
 
 .release-card.filtered-out {
-  opacity: 0.13;
+  opacity: 0.12;
   pointer-events: none;
   filter: grayscale(1);
 }
 
-/* Card Top Meta Row with Platform Icon */
+/* Row 1: Card Top Meta Row */
 .card-meta-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 6px;
+  height: 22px;
   z-index: 1;
 }
 
@@ -411,14 +511,17 @@ html, body {
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.03em;
-  padding: 3px 7px;
+  height: 20px;
+  padding: 0 7px;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.045);
   color: var(--text-secondary);
   border: 1px solid rgba(255, 255, 255, 0.075);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .format-tag svg {
@@ -437,73 +540,80 @@ html, body {
   align-items: center;
   gap: 3px;
   font-family: var(--font-mono);
-  font-size: 0.61rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: var(--star-gold);
   background: var(--star-gold-bg);
   border: 1px solid rgba(226, 185, 111, 0.3);
-  padding: 2px 7px;
+  height: 20px;
+  padding: 0 7px;
   border-radius: 99px;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .index-num {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.61rem;
   color: var(--text-muted);
+  flex-shrink: 0;
 }
 
-/* Card Center Title, Description & Cross-Port Note */
+/* Row 2: Card Body (Never Clipped or Smushed) */
 .card-body {
-  margin: auto 0;
-  padding: 4px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  min-height: 0;
   z-index: 1;
 }
 
-.card-title-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 3px;
-}
-
 .card-title {
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 0.88vw, 0.92rem);
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.22;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .release-card.starred .card-title {
-  font-size: 0.94rem;
   font-weight: 700;
 }
 
 .card-desc {
-  font-size: 0.72rem;
+  font-size: clamp(0.66rem, 0.72vw, 0.72rem);
   color: var(--text-secondary);
-  line-height: 1.38;
+  line-height: 1.34;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Special Cross-Platform Note Pill on Multiverse Brawl GBA Tile */
+/* When card has a cross-port note pill, keep description to 1 clean line so both fit with zero smushing */
+.release-card.has-note .card-desc {
+  -webkit-line-clamp: 1;
+}
+
 .port-note-pill {
-  margin-top: 5px;
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 5px;
   font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: #d4d4dc;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px dashed rgba(226, 185, 111, 0.4);
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: #e4e4ec;
+  background: rgba(226, 185, 111, 0.1);
+  border: 1px solid rgba(226, 185, 111, 0.38);
   border-radius: 5px;
   padding: 2px 7px;
+  white-space: nowrap;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -513,26 +623,28 @@ html, body {
 }
 
 .port-note-pill:hover {
-  background: rgba(226, 185, 111, 0.15);
+  background: rgba(226, 185, 111, 0.22);
   border-color: var(--star-gold);
   color: #ffffff;
 }
 
-/* Card Footer Row: Size & Tactile Download Button */
+/* Row 3: Card Footer Row — Fixed 28px Height & Locked Button Width */
 .card-footer-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 7px;
+  height: 28px;
+  padding-top: 5px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 1;
 }
 
 .size-label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   color: var(--text-secondary);
+  white-space: nowrap;
 }
 
 .dl-button {
@@ -540,15 +652,18 @@ html, body {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.71rem;
+  font-size: 0.69rem;
   font-weight: 600;
-  padding: 4px 10px;
+  height: 23px;
+  width: 88px;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.15s ease;
+  justify-content: center;
+  gap: 4px;
+  flex-shrink: 0;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .release-card:hover .dl-button {
@@ -565,7 +680,7 @@ html, body {
 
 .release-card.starred:hover .dl-button {
   background: #ffffff;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.22);
 }
 
 .dl-button.done {
@@ -581,10 +696,11 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 8px;
+  height: 36px;
+  padding-top: 6px;
   border-top: 1px solid var(--border-subtle);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   color: var(--text-muted);
   gap: 12px;
 }
@@ -592,11 +708,12 @@ html, body {
 .status-left {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 240px;
 }
 
 .live-indicator {
@@ -610,52 +727,42 @@ html, body {
 .status-legal-center {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--text-muted);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.legal-link-btn {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  padding: 2px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.legal-link-btn:hover {
-  color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.07);
+.status-legal-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .status-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
-   FLORIDA LEGAL, DMCA & LIABILITY SHIELD MODAL
+   FLORIDA LEGAL, DMCA & IRONCLAD NON-USE COVENANT MODAL
    ========================================================================== */
 .legal-modal-backdrop {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(4, 4, 6, 0.84);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(4, 4, 6, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   display: grid;
   place-items: center;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
-  padding: 20px;
+  padding: 16px;
 }
 
 .legal-modal-backdrop.open {
@@ -664,63 +771,73 @@ html, body {
 }
 
 .legal-modal {
-  width: min(760px, 95vw);
-  max-height: 84dvh;
+  width: min(820px, 96vw);
+  max-height: 88dvh;
   background: #101014;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.38);
   border-radius: 14px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.88), 0 0 36px rgba(239, 68, 68, 0.12);
 }
 
 .legal-modal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--border-subtle);
-  background: #131318;
+  gap: 12px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.22);
+  background: linear-gradient(90deg, rgba(220, 38, 38, 0.12), #131318 65%);
 }
 
 .legal-modal-header h3 {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
   letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .legal-close-btn {
   border: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--text-secondary);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  padding: 4px 10px;
+  font-size: 0.68rem;
+  padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .legal-close-btn:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .legal-modal-body {
-  padding: 18px 22px;
+  padding: 18px 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   user-select: text;
 }
 
 .legal-clause {
   background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.065);
   border-radius: 9px;
   padding: 12px 14px;
+}
+
+.legal-clause.clause-critical {
+  background: rgba(220, 38, 38, 0.08);
+  border-color: rgba(239, 68, 68, 0.38);
 }
 
 .legal-clause h4 {
@@ -735,48 +852,60 @@ html, body {
 
 .legal-clause h4 span {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   color: var(--star-gold);
 }
 
+.legal-clause.clause-critical h4 span {
+  color: #f87171;
+}
+
 .legal-clause p {
-  font-size: 0.74rem;
+  font-size: 0.73rem;
   line-height: 1.55;
   color: var(--text-secondary);
+}
+
+.legal-clause.clause-critical p {
+  color: #e4e4ec;
 }
 
 .legal-modal-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 12px 20px;
   border-top: 1px solid var(--border-subtle);
   background: #131318;
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.71rem;
+  color: var(--text-secondary);
 }
 
 .legal-accept-btn {
-  border: none;
-  background: #f4f4f6;
-  color: #08080a;
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 7px 16px;
+  padding: 8px 16px;
   border-radius: 7px;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.35);
 }
 
 .legal-accept-btn:hover {
-  background: #ffffff;
+  background: #ef4444;
 }
 
 /* Subtle Toast Notification */
 .toast-wrap {
   position: fixed;
-  bottom: 44px;
-  right: 26px;
+  bottom: 46px;
+  right: 24px;
   z-index: 150;
   display: flex;
   flex-direction: column;
@@ -790,7 +919,7 @@ html, body {
   border-radius: 10px;
   padding: 10px 15px;
   color: var(--text-primary);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
   display: flex;
@@ -804,20 +933,143 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 1200px) {
+/* ==========================================================================
+   TABLET & MOBILE LAYOUT — ROCK-SOLID, ZERO OVERLAP, UNIFORM CARD SIZING
+   ========================================================================== */
+@media (max-width: 1240px) {
   html, body {
-    overflow-y: auto;
     height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
+
   .viewport-shell {
     height: auto;
-    grid-template-rows: auto auto auto;
+    min-height: 100dvh;
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
-  .featured-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  .topbar {
+    height: auto;
+    flex-wrap: wrap;
+    padding-bottom: 14px;
+    gap: 12px;
   }
+
+  .filter-nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 4px;
+    scrollbar-width: none;
+  }
+
+  .filter-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .tier-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .featured-grid,
   .library-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 142px;
+    gap: 12px;
+    height: auto;
+  }
+
+  .release-card {
+    height: 142px;
+  }
+
+  .statusbar {
+    height: auto;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  .featured-grid,
+  .library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 146px;
+  }
+
+  .release-card {
+    height: 146px;
+  }
+
+  .utility-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .search-wrap {
+    flex: 1;
+    width: auto;
+  }
+
+  .status-legal-center {
+    white-space: normal;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 540px) {
+  .viewport-shell {
+    padding: 14px 14px 24px;
+  }
+
+  .brand-meta {
+    display: none;
+  }
+
+  .brand-divider {
+    display: none;
+  }
+
+  .featured-grid,
+  .library-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 144px;
+    gap: 10px;
+  }
+
+  .release-card {
+    height: 144px;
+    padding: 12px 14px;
+  }
+
+  .card-title {
+    font-size: 0.92rem;
+  }
+
+  .card-desc {
+    font-size: 0.75rem;
+  }
+
+  .legal-modal-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
   }
 }
