@@ -56,14 +56,14 @@ const RELEASES = [
   },
   {
     id: 3,
-    file: 'Multiverse-Brawl-Android.apk',
-    title: 'Multiverse Brawl Android',
-    desc: 'Standalone Android APK port of Multiverse Brawl with touch controls and full fighter roster.',
+    file: 'BlackoutOps-Android.apk',
+    title: 'Blackout Ops Android APK',
+    desc: 'A mix of all the CODs, with all the guns, new modes, old maps, plus all the zombie maps.',
     category: 'android',
     platformIcon: 'android',
     format: 'ANDROID APK',
     ext: 'apk',
-    size: '10.6 MB',
+    size: '3.07 MB',
     starred: true
   },
   {
@@ -90,14 +90,26 @@ const RELEASES = [
     size: '3.28 MB',
     starred: true,
     crossPortNote: 'Android APK port also available →',
-    crossPortTargetId: 3
+    crossPortTargetId: 6
   },
 
   // ========================================================================
-  // TIER 2: 10 ARCHIVE BUILDS (5 x 2 GRID)
+  // TIER 2: 11 ARCHIVE BUILDS (6 x 2 GRID)
   // ========================================================================
   {
     id: 6,
+    file: 'Multiverse-Brawl-Android.apk',
+    title: 'Multiverse Brawl Android',
+    desc: 'Standalone Android APK port of Multiverse Brawl with touch controls and full fighter roster.',
+    category: 'android',
+    platformIcon: 'android',
+    format: 'ANDROID APK',
+    ext: 'apk',
+    size: '10.6 MB',
+    starred: false
+  },
+  {
+    id: 7,
     file: 'Pokemon-Ruby-Android-1.3.1.apk',
     title: 'Pokémon Ruby Android v1.3.1',
     desc: 'Native Android APK with built-in Mod Menu overlay and instant dialogue skip.',
@@ -109,7 +121,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 7,
+    id: 8,
     file: 'pokefirered_live_action.gba',
     title: 'Pokémon FireRed: Live Action',
     desc: '16 MB FireRed overhaul with real-time combat mechanics and direct overworld action.',
@@ -121,7 +133,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 8,
+    id: 9,
     file: 'Pokemon_LeafGreen_x_Zelda_Minish_Cap.gba',
     title: 'LeafGreen × Zelda Minish Cap',
     desc: 'Kanto & Hyrule crossover blending Pokémon LeafGreen and Minish Cap mechanics.',
@@ -133,7 +145,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 9,
+    id: 10,
     file: 'Pokemon_LeafGreen_MK_Edition.gba',
     title: 'LeafGreen: MK Edition',
     desc: 'Custom LeafGreen Mortal Kombat Edition featuring arcade fighter encounters.',
@@ -145,7 +157,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 10,
+    id: 11,
     file: 'Pokemon_Kombat_Advance.gba',
     title: 'Pokémon Kombat Advance',
     desc: '60fps 2D arena fighting engine engineered natively for Game Boy Advance.',
@@ -157,7 +169,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 11,
+    id: 12,
     file: 'tidemark.gba',
     title: 'Tidemark',
     desc: 'Original maritime tactical exploration and oceanic adventure built for GBA.',
@@ -169,7 +181,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 12,
+    id: 13,
     file: 'wildheart_v4.gba',
     title: 'Wildheart v4',
     desc: 'Wilderness action RPG (v4 release) with creature companions, custom tile shaders, and bosses.',
@@ -181,7 +193,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 13,
+    id: 14,
     file: 'aethermon.gba',
     title: 'Aethermon',
     desc: 'Original monster-taming RPG engine featuring elemental synthesis and pixel art.',
@@ -193,7 +205,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 14,
+    id: 15,
     file: 'Emberwake.gba',
     title: 'Emberwake',
     desc: 'Volcanic dungeon crawler with dynamic lighting tiles and frame-accurate combat.',
@@ -205,7 +217,7 @@ const RELEASES = [
     starred: false
   },
   {
-    id: 15,
+    id: 16,
     file: 'NeonPulse.gba',
     title: 'NeonPulse',
     desc: 'High-speed synthwave reflex runner utilizing GBA hardware scaling and chiptune DSP.',
