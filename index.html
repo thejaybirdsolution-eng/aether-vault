@@ -1,285 +1,112 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="obsidian">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>AETHER // VAULT OS v4.2 — Spatial Artifact Telemetry & Direct Download Deck</title>
-  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaybird Vault — Games & Android Apps</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-  <!-- Three.js WebGL Engine -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- WebGL 3D Reactive Background Canvas -->
-  <canvas id="webgl-bg"></canvas>
-  <div class="ambient-vignette"></div>
-  <div class="scanline-overlay"></div>
+  <!-- Smooth Ambient Aurora Mesh Backdrop -->
+  <div class="ambient-backdrop" id="ambient-backdrop"></div>
+  <div class="ambient-dots"></div>
 
-  <!-- Hidden File Input so user can also inject their own 1MB-3MB files at any time -->
-  <input type="file" id="custom-file-input" multiple style="display:none" />
-
-  <!-- ZERO-SCROLL 100vw x 100dvh SPATIAL APP SHELL -->
-  <main class="app-shell">
-    <!-- 1. TOP COMMAND & TELEMETRY BAR -->
-    <header class="topbar">
-      <div class="brand-cluster">
-        <div class="brand-sigil" title="AETHER Spatial Core Active">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-            <line x1="12" y1="22" x2="12" y2="15.5"></line>
-            <polyline points="22 8.5 12 15.5 2 8.5"></polyline>
+  <!-- Zero-Scroll App Container -->
+  <main class="app-container">
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
           </svg>
         </div>
-        <div class="brand-titles">
-          <div class="brand-name">
-            AETHER // VAULT
-            <span class="version-pill">OS v4.2</span>
-          </div>
-          <div class="brand-sub">
-            <span class="status-dot"></span>
-            <span id="vault-summary-label">13 BUILDS READY // 154.71 MB</span>
-          </div>
+        <div class="brand-text">
+          <h1>Jaybird Vault</h1>
+          <p>13 Ready-to-Download Games &amp; Apps</p>
         </div>
       </div>
 
-      <!-- Spatial View Switcher & Category Filter Pills -->
-      <nav class="nav-center" aria-label="Spatial View Modes">
-        <div class="segmented-control" role="tablist">
-          <button class="mode-btn active" data-view="bento" id="btn-view-bento" title="4x4 Zero-Scroll Bento Matrix (Key: 1)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-              <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-              <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-            </svg>
-            01 // MATRIX
-          </button>
-          <button class="mode-btn" data-view="orbital" id="btn-view-orbital" title="Interactive Orbital Constellation Graph (Key: 2)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="3"></circle>
-              <circle cx="19" cy="5" r="2"></circle>
-              <circle cx="5" cy="19" r="2"></circle>
-              <line x1="14.2" y1="9.8" x2="17.5" y2="6.5"></line>
-              <line x1="9.8" y1="14.2" x2="6.5" y2="17.5"></line>
-            </svg>
-            02 // ORBITAL
-          </button>
-          <button class="mode-btn" data-view="terminal" id="btn-view-terminal" title="High-Density Telemetry Deck (Key: 3)">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="4 17 10 11 4 5"></polyline>
-              <line x1="12" y1="19" x2="20" y2="19"></line>
-            </svg>
-            03 // DECK
-          </button>
-        </div>
-
-        <div class="segmented-control" id="category-filter-bar">
-          <button class="cat-btn active" data-cat="all">ALL <span class="cat-count" id="count-all">13</span></button>
-          <button class="cat-btn" data-cat="pokemon"><span class="cat-label-text">POKÉMON</span> <span class="cat-count">5</span></button>
-          <button class="cat-btn" data-cat="original"><span class="cat-label-text">ORIGINAL GBA</span> <span class="cat-count">6</span></button>
-          <button class="cat-btn" data-cat="android"><span class="cat-label-text">ANDROID APK</span> <span class="cat-count">2</span></button>
-        </div>
+      <!-- Effortless Category Filter Pills -->
+      <nav class="filter-pills" aria-label="Filter Categories">
+        <button class="filter-tab active" data-cat="all">
+          All Builds <span class="pill-count">13</span>
+        </button>
+        <button class="filter-tab" data-cat="android">
+          Android Apps <span class="pill-count">2</span>
+        </button>
+        <button class="filter-tab" data-cat="pokemon">
+          Pokémon Editions <span class="pill-count">5</span>
+        </button>
+        <button class="filter-tab" data-cat="original">
+          Original Games <span class="pill-count">6</span>
+        </button>
       </nav>
 
-      <!-- Utility & Audio/Theme Controls -->
-      <div class="action-cluster">
-        <button class="util-btn accent-outline" id="btn-inject-files" title="Drop or select your own local files to add to the vault">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <line x1="12" y1="5" x2="12" y2="19"></line>
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-          </svg>
-          INJECT FILES
-        </button>
-        <button class="util-btn" id="btn-cmd-palette" title="Quick Search & Command Palette (Ctrl+K or /)">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <!-- Instant Search Input -->
+      <div class="nav-actions">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          SEARCH
-          <span class="kbd-tag">⌘K</span>
-        </button>
-        <button class="util-btn" id="btn-sfx-toggle" title="Toggle Procedural Web Audio UI Synthesizer">
-          <span id="sfx-label">SFX: ON</span>
-        </button>
-        <button class="util-btn" id="btn-theme-cycle" title="Cycle Holographic Color Theme">
-          <span id="theme-label">CYBER</span>
-        </button>
+          <input type="text" id="search-input" class="search-input" placeholder="Search games & apps..." autocomplete="off" />
+        </div>
       </div>
     </header>
 
-    <!-- 2. MAIN WORKSPACE STAGE (ZERO SCROLL) -->
-    <section class="workspace-stage">
-      <!-- Left Primary Spatial Viewport -->
-      <div class="primary-viewport" id="dropzone-viewport">
-        <!-- View 01: 4x4 Zero-Scroll Bento Matrix -->
-        <div class="view-panel active" id="panel-bento">
-          <div class="bento-matrix" id="bento-grid"></div>
+    <!-- Main Content Stage: Left Spotlight + Right 13-Card Bento Grid -->
+    <section class="content-stage">
+      <!-- Left Featured Spotlight Panel -->
+      <aside class="spotlight-panel" aria-label="Selected Game Details">
+        <div class="spotlight-art" id="spotlight-art" style="background: linear-gradient(135deg, #ef4444, #f97316);">
+          <div class="spotlight-icon-wrap" id="spotlight-icon"></div>
+          <span class="spotlight-platform-tag" id="spotlight-badge">GBA ROM</span>
         </div>
 
-        <!-- View 02: Orbital Constellation Graph -->
-        <div class="view-panel" id="panel-orbital">
-          <div class="orbital-stage">
-            <canvas id="orbital-canvas"></canvas>
-            <div class="orbital-hud-overlay">
-              <div class="orbital-hud-title">SPATIAL CONSTELLATION // FORCE TELEMETRY</div>
-              <div class="orbital-hud-hint">Click any orbiting artifact node to inspect • Double-click node for instant download • Drag to pan</div>
+        <div class="spotlight-info">
+          <div class="spotlight-subtitle" id="spotlight-subtitle">Real-Time Action Overhaul</div>
+          <h2 class="spotlight-title" id="spotlight-title">Pokémon FireRed: Live Action</h2>
+          <p class="spotlight-desc" id="spotlight-desc">
+            Full 16 MB Pokémon FireRed Live-Action overhaul featuring real-time combat mechanics, direct movement, and custom overworld encounters.
+          </p>
+
+          <div class="spotlight-meta">
+            <div class="meta-box">
+              <span>File Size</span>
+              <strong id="spotlight-size">16.0 MB</strong>
+            </div>
+            <div class="meta-box">
+              <span>Format</span>
+              <strong id="spotlight-ext">.GBA File</strong>
             </div>
           </div>
         </div>
 
-        <!-- View 03: High-Density Terminal Deck -->
-        <div class="view-panel" id="panel-terminal">
-          <div class="terminal-stage">
-            <div class="terminal-header">
-              <span>SLOT</span>
-              <span>ARTIFACT IDENTIFIER</span>
-              <span>SECTOR</span>
-              <span>FORMAT</span>
-              <span>PAYLOAD</span>
-              <span>SHA-256 SIGNATURE</span>
-              <span style="text-align:right;">ACTION</span>
-            </div>
-            <div class="terminal-rows" id="terminal-rows-container"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Holographic Inspector & Live Interactive Preview Dock -->
-      <aside class="inspector-dock" aria-label="Artifact Inspector">
-        <div>
-          <div class="inspector-header">
-            <span class="inspector-tag">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-              HOLO-INSPECTOR // LIVE
-            </span>
-            <span class="version-pill" id="insp-slot-badge">SLOT #01</span>
-          </div>
-
-          <!-- Interactive 3D / Audio Waveform / Hex Live Canvas -->
-          <div class="holo-preview-box" style="margin-top:8px;">
-            <canvas id="inspector-canvas"></canvas>
-            <div class="preview-overlay-controls">
-              <span class="preview-mode-chip" id="insp-preview-mode">3D MESH // INTERACTIVE</span>
-              <button class="audio-play-btn" id="btn-audio-preview">
-                <span id="audio-play-icon">▶</span> SYNTH PREVIEW
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Selected Artifact Title & Description -->
-        <div class="inspector-title-block">
-          <div class="insp-filename" id="insp-name">AETHER_UI_Design_System_v4.zip</div>
-          <div class="insp-desc" id="insp-desc">Complete spatial glassmorphic UI tokens, figma variables, and responsive layout primitives.</div>
-        </div>
-
-        <!-- 2x2 Telemetry Specs -->
-        <div class="telemetry-grid">
-          <div class="telemetry-cell">
-            <span class="tele-label">EXACT PAYLOAD</span>
-            <span class="tele-val" id="insp-size">2.45 MB (2,569,011 B)</span>
-          </div>
-          <div class="telemetry-cell">
-            <span class="tele-label">FORMAT / CODEC</span>
-            <span class="tele-val" id="insp-format">ZIP // STORED</span>
-          </div>
-          <div class="telemetry-cell">
-            <span class="tele-label">SECTOR CLASS</span>
-            <span class="tele-val" id="insp-category">DESIGN & UI</span>
-          </div>
-          <div class="telemetry-cell">
-            <span class="tele-label">INTEGRITY</span>
-            <span class="tele-val" style="color:var(--accent-emerald);">VERIFIED ✓</span>
-          </div>
-        </div>
-
-        <!-- SHA-256 Signature Bar -->
-        <div class="checksum-bar">
-          <span id="insp-sha">SHA256: 8f9c2d41...e71b40a9</span>
-          <button class="copy-hash-btn" id="btn-copy-sha">COPY</button>
-        </div>
-
-        <!-- Primary Download & Batch Queue Actions -->
-        <div class="inspector-actions">
-          <button class="primary-dl-btn" id="btn-primary-download">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+        <div class="spotlight-actions">
+          <button class="btn-download-hero" id="btn-hero-download">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span id="primary-dl-label">DOWNLOAD ARTIFACT (2.45 MB)</span>
-          </button>
-          <button class="secondary-queue-btn" id="btn-toggle-queue">
-            <span id="queue-toggle-label">+ ADD TO BATCH QUEUE</span>
+            <span id="btn-hero-text">Download Now (16.0 MB)</span>
           </button>
         </div>
       </aside>
+
+      <!-- Right Zero-Scroll 13-Item Bento Grid -->
+      <div class="bento-grid" id="bento-grid"></div>
     </section>
-
-    <!-- 3. BOTTOM TELEMETRY & BATCH TRANSFER DOCK -->
-    <footer class="bottombar">
-      <div class="sys-metrics">
-        <div class="metric-item">
-          <span>ENGINE:</span>
-          <span class="metric-val" id="fps-counter">60 FPS // WEBGL</span>
-        </div>
-        <div class="metric-item">
-          <span>QUEUE:</span>
-          <span class="metric-val" id="queue-counter">0 SELECTED (0.00 MB)</span>
-        </div>
-        <div class="metric-item">
-          <span>KEYS:</span>
-          <span class="metric-val">[1-3] VIEW • [↑↓←→] NAV • [ENTER] DL • [SPACE] QUEUE</span>
-        </div>
-      </div>
-
-      <!-- Live Transfer Stream Progress Bar -->
-      <div class="transfer-engine">
-        <span class="transfer-status-text" id="transfer-status">STREAM IDLE // READY</span>
-        <div class="transfer-track">
-          <div class="transfer-fill" id="transfer-bar"></div>
-        </div>
-      </div>
-
-      <!-- Batch Download Buttons -->
-      <div class="batch-cluster">
-        <button class="util-btn" id="btn-select-all">SELECT ALL 16</button>
-        <button class="batch-dl-btn" id="btn-batch-download">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
-            <polyline points="8 17 12 21 16 17"></polyline>
-            <line x1="12" y1="12" x2="12" y2="21"></line>
-            <path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"></path>
-          </svg>
-          <span id="batch-dl-label">DOWNLOAD ALL 16 (31.94 MB)</span>
-        </button>
-      </div>
-    </footer>
   </main>
 
-  <!-- COMMAND PALETTE MODAL (Ctrl+K or /) -->
-  <div class="modal-backdrop" id="cmd-modal-backdrop">
-    <div class="cmd-modal" role="dialog" aria-label="Command Palette">
-      <div class="cmd-input-wrap">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2.2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <input type="text" class="cmd-input" id="cmd-search-input" placeholder="Filter 16 artifacts by filename, extension (.wav, .zip, .glb, .wasm), or sector..." autocomplete="off" />
-        <span class="kbd-tag">ESC</span>
-      </div>
-      <div class="cmd-list" id="cmd-results-list"></div>
-    </div>
-  </div>
-
-  <!-- TOAST NOTIFICATION STACK -->
-  <div class="toast-stack" id="toast-stack"></div>
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="app.js"></script>
 </body>
