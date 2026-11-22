@@ -3,110 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jaybird Vault — Games & Android Apps</title>
+  <title>Jaybird — Release Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Smooth Ambient Aurora Mesh Backdrop -->
-  <div class="ambient-backdrop" id="ambient-backdrop"></div>
-  <div class="ambient-dots"></div>
+  <!-- Subtle Monochromatic Studio Lighting & Grid -->
+  <div class="studio-lighting"></div>
+  <div class="studio-grid"></div>
 
-  <!-- Zero-Scroll App Container -->
-  <main class="app-container">
-    <!-- Top Navigation Bar -->
-    <header class="navbar">
-      <div class="brand">
-        <div class="brand-logo">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1>Jaybird Vault</h1>
-          <p>13 Ready-to-Download Games &amp; Apps</p>
+  <!-- Zero-Scroll 100dvh Architectural Shell -->
+  <main class="viewport-shell">
+    <!-- Top Bar -->
+    <header class="topbar">
+      <div class="brand-group">
+        <div class="brand-mark">JB</div>
+        <div class="brand-title">
+          <span>Jaybird Archive</span>
+          <span class="brand-divider">/</span>
+          <span class="brand-meta">14 Releases · 165.3 MB</span>
         </div>
       </div>
 
-      <!-- Effortless Category Filter Pills -->
-      <nav class="filter-pills" aria-label="Filter Categories">
-        <button class="filter-tab active" data-cat="all">
-          All Builds <span class="pill-count">13</span>
+      <!-- Segmented Filter Bar -->
+      <nav class="filter-nav" aria-label="Filter Releases">
+        <button class="filter-btn active" data-filter="all">
+          All <span class="filter-count">14</span>
         </button>
-        <button class="filter-tab" data-cat="android">
-          Android Apps <span class="pill-count">2</span>
+        <button class="filter-btn" data-filter="starred">
+          <span class="star-glyph">★</span> Starred <span class="filter-count">4</span>
         </button>
-        <button class="filter-tab" data-cat="pokemon">
-          Pokémon Editions <span class="pill-count">5</span>
+        <button class="filter-btn" data-filter="android">
+          Android APK <span class="filter-count">3</span>
         </button>
-        <button class="filter-tab" data-cat="original">
-          Original Games <span class="pill-count">6</span>
+        <button class="filter-btn" data-filter="pokemon">
+          Pokémon GBA <span class="filter-count">5</span>
+        </button>
+        <button class="filter-btn" data-filter="original">
+          Original GBA <span class="filter-count">6</span>
         </button>
       </nav>
 
-      <!-- Instant Search Input -->
-      <div class="nav-actions">
-        <div class="search-box">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Search Field -->
+      <div class="utility-group">
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" id="search-input" class="search-input" placeholder="Search games & apps..." autocomplete="off" />
+          <input type="text" id="search-input" class="search-field" placeholder="Filter builds..." autocomplete="off" />
+          <span class="search-shortcut">/</span>
         </div>
       </div>
     </header>
 
-    <!-- Main Content Stage: Left Spotlight + Right 13-Card Bento Grid -->
-    <section class="content-stage">
-      <!-- Left Featured Spotlight Panel -->
-      <aside class="spotlight-panel" aria-label="Selected Game Details">
-        <div class="spotlight-art" id="spotlight-art" style="background: linear-gradient(135deg, #ef4444, #f97316);">
-          <div class="spotlight-icon-wrap" id="spotlight-icon"></div>
-          <span class="spotlight-platform-tag" id="spotlight-badge">GBA ROM</span>
+    <!-- Main Zero-Scroll Content Stage -->
+    <section class="main-stage">
+      <!-- Tier 1: The 4 Starred Flagships -->
+      <div class="tier-section tier-featured">
+        <div class="section-header">
+          <span class="section-label">
+            <span class="star-dot">★</span> Featured Flagships
+          </span>
+          <span class="section-sub">01 — 04 / Priority Releases</span>
         </div>
+        <div class="featured-grid" id="featured-grid"></div>
+      </div>
 
-        <div class="spotlight-info">
-          <div class="spotlight-subtitle" id="spotlight-subtitle">Real-Time Action Overhaul</div>
-          <h2 class="spotlight-title" id="spotlight-title">Pokémon FireRed: Live Action</h2>
-          <p class="spotlight-desc" id="spotlight-desc">
-            Full 16 MB Pokémon FireRed Live-Action overhaul featuring real-time combat mechanics, direct movement, and custom overworld encounters.
-          </p>
-
-          <div class="spotlight-meta">
-            <div class="meta-box">
-              <span>File Size</span>
-              <strong id="spotlight-size">16.0 MB</strong>
-            </div>
-            <div class="meta-box">
-              <span>Format</span>
-              <strong id="spotlight-ext">.GBA File</strong>
-            </div>
-          </div>
+      <!-- Tier 2: The 10 Library Builds (5 x 2 Grid) -->
+      <div class="tier-section tier-library">
+        <div class="section-header">
+          <span class="section-label">Complete Build Library</span>
+          <span class="section-sub">05 — 14 / Direct Binary Downloads</span>
         </div>
-
-        <div class="spotlight-actions">
-          <button class="btn-download-hero" id="btn-hero-download">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span id="btn-hero-text">Download Now (16.0 MB)</span>
-          </button>
-        </div>
-      </aside>
-
-      <!-- Right Zero-Scroll 13-Item Bento Grid -->
-      <div class="bento-grid" id="bento-grid"></div>
+        <div class="library-grid" id="library-grid"></div>
+      </div>
     </section>
+
+    <!-- Bottom Architectural Status Bar -->
+    <footer class="statusbar">
+      <div class="status-left">
+        <span class="live-indicator"></span>
+        <span id="status-inspect">Ready — Click any card to download immediately</span>
+      </div>
+      <div class="status-right">
+        <span>CDN: GitHub Pages Direct</span>
+        <span id="status-count">14 / 14 Visible</span>
+      </div>
+    </footer>
   </main>
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- Toast Container -->
+  <div class="toast-wrap" id="toast-wrap"></div>
 
   <script src="app.js"></script>
 </body>
